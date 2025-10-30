@@ -1,0 +1,45 @@
+/* src/App.css */
+
+/* Smooth scrolling behavior for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for modern look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ec4899; /* Tailwind pink-500 */
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #db2777; /* Tailwind pink-600 */
+}
+
+/* Body transition for theme changes */
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Reusable utility class for section spacing */
+.section {
+  padding: 80px 0;
+}
+
+/* Fade-in animation (optional use in components) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}

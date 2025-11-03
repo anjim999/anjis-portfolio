@@ -11,13 +11,18 @@ export default function Hero() {
         <p className="text-lg mb-6">
           I’m a Frontend Developer passionate about crafting responsive, beautiful, and high-performance web interfaces using modern web technologies.
         </p>
+        
+        {/* --- START OF FINAL FIX --- */}
         <a
-          href="/src/assets/resume.pdf"
-          download
+          href="/resume.pdf"          // 1. Points to the file in your 'public' folder
+          target="_blank"             // 2. Opens the link in a new tab
+          rel="noopener noreferrer"   // 3. A security best practice for new tabs
           className="bg-indigo-500 text-white px-5 py-2 rounded-md hover:bg-indigo-600"
+          // 4. The 'download' attribute has been REMOVED to prevent mobile errors
         >
-          Download Resume
+          View Resume
         </a>
+
       </div>
       <img src={hero} alt="Hero" className="w-64 md:w-96 animate-float" />
     </section>

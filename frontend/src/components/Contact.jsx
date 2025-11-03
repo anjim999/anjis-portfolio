@@ -8,23 +8,34 @@ const Contact = () => {
   const [status, setStatus] = useState("");
   const [isSent, setIsSent] = useState(false);
 
+  // --- THIS FUNCTION HAS BEEN UPDATED ---
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("Sending...");
 
+    // 1. Create the templateParams object from your form's data
+    //    We get the values from the `form.current` ref
+    const templateParams = {
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      message: form.current.message.value,
+      reply_to: form.current.user_email.value, // <-- This adds the Reply-To field
+    };
+
+    // 2. Change 'sendForm' to 'send' and pass the templateParams object
     emailjs
-      .sendForm(
-        "service_pi5gzqi", // ✅ Your Service ID
-        "template_rekboz8", // ✅ Your Template ID
-        form.current,
-        "5q0wUzcJ55wPWj9TV" // ✅ Your Public Key
+      .send(
+        "service_pi5gzqi",  // Your Service ID
+        "template_rekboz8", // Your Template ID
+        templateParams,     // Pass the new object here
+        "5q0wUzcJ55wPWj9TV"  // Your Public Key
       )
       .then(
         (result) => {
           console.log(result.text);
           setStatus("Message Sent Successfully!");
           setIsSent(true);
-          e.target.reset();
+          e.target.reset(); // Clear the form
           setTimeout(() => setIsSent(false), 4000);
         },
         (error) => {
@@ -33,6 +44,7 @@ const Contact = () => {
         }
       );
   };
+  // --- END OF UPDATED FUNCTION ---
 
   return (
     <section id="contact" className="min-h-screen flex flex-col justify-center items-center bg-gray-950 text-white px-6 py-16">

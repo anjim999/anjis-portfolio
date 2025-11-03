@@ -42,3 +42,4 @@ export const projects = [
     live: "https://storeratings.netlify.app/",
   },
 ];
+// https://drive.google.com/file/d/1CHgX7frEuRivzkWeKLNeW-GdoEiOzziH/view?usp=sharing

@@ -22,7 +22,7 @@ function App() {
     <div className="font-poppins bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
       <Navbar toggleTheme={toggleTheme} theme={theme} />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Skills />
       <Projects />
       <Contact />
